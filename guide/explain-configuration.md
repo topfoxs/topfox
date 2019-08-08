@@ -1,5 +1,5 @@
  
-# 1. [↖回到主目录](https://gitee.com/topfox/topfox/blob/dev/README.md)
+# 1. [↖回到主目录](https://github.com/luoping2019/topfox)
 
 # 2. TopFox配置参数
 以下参数在项目  application.properties 文件中配置, 不配置会用默认值. 下面的等号后面的值就是默认值. 

@@ -1,6 +1,6 @@
-# 1. [↖回到主目录](https://gitee.com/topfox/topfox/blob/dev/README.md)
+# 1. [↖回到主目录](https://github.com/luoping2019/topfox)
 
-# 2. 高级运用
+# 2. 高级应用
 
 ## 2.1. 查询时如何才能不读取缓存
 请读者先阅读 章节 《TopFox配置参数 》中的一级二级缓存开关

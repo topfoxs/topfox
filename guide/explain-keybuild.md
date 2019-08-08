@@ -1,4 +1,4 @@
-# 1. [↖回到主目录](https://gitee.com/topfox/topfox/blob/dev/README.md)
+# 1. [↖回到主目录](https://github.com/luoping2019/topfox)
 
 # 2. 流水号生成器 KeyBuild
 ## 2.1. getKeyId()

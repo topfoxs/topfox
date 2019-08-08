@@ -1,4 +1,4 @@
-# 1. [↖回到主目录](https://gitee.com/topfox/topfox/blob/dev/README.md)
+# 1. [↖回到主目录](https://github.com/luoping2019/topfox)
 
 # 2. 实体查询构造器 EntitySelect 应用例子
 参考  章节<核心使用>  listObjects(EntitySelect entitySelect) 中的例子
