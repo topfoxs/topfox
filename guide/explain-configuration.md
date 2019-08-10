@@ -1,5 +1,5 @@
  
-# 1. [↖回到主目录](https://github.com/luoping2019/topfox)
+# 1. [↖回到主目录](https://github.com/topfoxs/topfox)
 
 # 2. TopFox配置参数
 以下参数在项目  application.properties 文件中配置, 不配置会用默认值. 下面的等号后面的值就是默认值. 
@@ -24,9 +24,6 @@ debug 当前线程结束 日志输出分割符
 
 ## 2.7. [新增] top.service.redis-cache=false
 是否开启二级缓存(redis缓存), 默认false 关闭, 替代老的 open-redis
-
-## 2.8. top.service.open-redis=false  作废
-service层是否开启redis缓存, 
 
 ## 2.9. top.service.redis-log=flase
 
@@ -111,10 +108,15 @@ public interface SysConfig extends SysConfigRead {
     void setUpdateMode(Integer value);
 
     /**
-     * 对应配置文件中的  top.service.open-redis
+     * 对应配置文件中的  top.service.redis-cache
      */
     void setRedisCache(Boolean value);
 
+    /**
+     * 对应配置文件中的  top.service.thread-cache
+     */
+    void setThreadCache(Boolean value);
+        
     /**
      * 对应配置文件中的  top.service.update-not-result-error
      */
@@ -128,7 +130,9 @@ public interface SysConfig extends SysConfigRead {
 - 使用场景举例:
 
 以参数 open-redis为例:
-<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 我们假定项目配置文件 application.properties中开启了 读写Redis 的功能, 即  top.service.open-redis=true , 此时的含义表示, 当前项目的所有service操作数据库的增删改查的数据都会同步到Redis中.   那问题来了,  假如刚好 UserService 需要关闭open-redis, 怎么处理呢, 代码如下:
+<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 我们假定项目配置文件 application.properties中开启了 读写Redis 的功能, 即  top.service.open-redis=true , 此时的含义表示, 当前项目的所有service操作数据库的增删改查的数据都会同步到Redis中.   
+
+那问题来了,  假如刚好某个service 如UserService 需要关闭 redis-cache, 怎么处理呢, 代码如下:
 
 ```java
 @Service
@@ -142,8 +146,11 @@ public class UserService extends AdvancedService<UserDao, UserDTO> {
             3.sysConfig中定义的参数在这里都可以更改
         */
         
-        //关闭了 UserService 读写redis的功能, 其他service不受影响
-        sysConfig.setOpenRedis(false);
+        //关闭UserService 读写redis的功能, 其他service不受影响
+        sysConfig.setRedisCache(false);
+        
+        //关闭UserService 读取一级缓存, 其他service不受影响
+        //sysConfig.setThreadCache(false);
     }
 }
 ```
