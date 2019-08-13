@@ -9,9 +9,9 @@
     </build>
 
     <parent>
-        <groupId>com.topfox</groupId>
+        <groupId>com.topfoxs</groupId>
         <artifactId>topfox</artifactId>
-        <version>1.2.6</version>
+        <version>1.2.1</version>
     </parent>
 
     <packaging>jar</packaging>
@@ -20,7 +20,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.topfox</groupId>
+            <groupId>com.topfoxs</groupId>
             <artifactId>topfox-sql</artifactId>
         </dependency>
 
