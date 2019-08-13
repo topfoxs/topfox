@@ -40,21 +40,28 @@
 - **无缝支持spring cloud**: 后续提供分布式调用的例子
 
 ## 1.3. topfox 使用
-> 推荐上传到自有的maven-nexus服, 然后在业务项目进行以下依赖
+> topfox 已经上传到 maven中央库, 在业务项目进行以下依赖
 
 ```
 <!--topfox-->
 <dependency>
-    <groupId>com.topfox</groupId>
+    <groupId>com.topfoxs</groupId>
     <artifactId>topfox</artifactId>
-    <version>1.2.6</version>
+    <version>1.2.7</version>
     <type>pom</type>
     <scope>import</scope>
 </dependency>
 ```
 
 # 2. 更新日志
-## 2.1. 版本1.2.6  更新日志 2019-08-02
+## 2.1. 版本1.2.7  更新日志 2019-08-13
+- 重要改动: group id 更改为 com.topfoxs
+- springboot版本更新到2.1.6
+- pom文件 配置了上传到mavan 中央库的一些支持
+- 源码托管到github, 地址 https://github.com/topfoxs/topfox
+- 与 1.2.6相比,  java源码无改动
+
+## 2.2. 版本1.2.6  更新日志 2019-08-02
 
 1: 改动如下
 
@@ -141,7 +148,7 @@ public class AppContextController {
 源码请参考 topfox-sample
 
 
-## 2.2. 版本1.2.5  更新日志 2019-07-30
+## 2.3. 版本1.2.5  更新日志 2019-07-30
 
 - 驼峰处理类 CamelHelper
 
@@ -152,7 +159,7 @@ BeanUtil.toCamelCase 删除, 用 CamelHelper.toCamel 替代
 
 - 解决 form-data 参数值丢失的问题, 即request.getParameterMap()获取不到值
 
-## 2.3. 版本1.2.4  更新日志 2019-07-24
+## 2.4. 版本1.2.4  更新日志 2019-07-24
 全局缓存参数开关
 
 ```
@@ -167,14 +174,14 @@ BeanUtil.toCamelCase 删除, 用 CamelHelper.toCamel 替代
 - insertGetKey 多主键赋值的问题
 - 填充组件优化, 不考虑
 
-## 2.4. 版本1.2.3  更新日志 2019-07-23
+## 2.5. 版本1.2.3  更新日志 2019-07-23
 已经完成
 
 - 多主键的支持, 包括:  更新,  删除, 查询, 数据校验组件, 修改日志组件; 
 - java远程调用返回空对象的处理; 
 - 技术文档修改
 
-## 2.5. 版本1.2.2  更新日志 2019-07-18
+## 2.6. 版本1.2.2  更新日志 2019-07-18
 请参考 << TopFox配置参数 >>中的描述, 增加配置3个参数  :
 
 - top.service.update-not-result-error
@@ -187,7 +194,7 @@ SimpleService.setFillDataHandler 方法作废.  不需要写代码, 会自动注
 
 增加填充组件 FillDataHandler的文档,  DataDTO void方法改为返回自身, DataDTO增加setValue方法, 可以对指定的字段赋值
 
-## 2.6. 版本1.2.0  更新日志
+## 2.7. 版本1.2.0  更新日志
 
 - updateBatch 方法的返回值 由int 改为 List< DTO >
 - BaseDao 作废删除, 增加   BaseMapper< DTO extends DataDTO > 代替
@@ -197,8 +204,8 @@ SimpleService.setFillDataHandler 方法作废.  不需要写代码, 会自动注
 
 - SimpleService 中 方法 setBaseDao 删除.  已经定义 baseMapper , 可访问开发者自定义Dao的方法
 
-## 2.7. 版本1.1.0  更新日志
-### 2.7.1. 上下文对象
+## 2.8. 版本1.1.0  更新日志
+### 2.8.1. 上下文对象
 - 在以后的版本中将删除 com.topfox.common.ApplicationContextProvider 
 - 新增加 上下文对象 com.topfox.common.AppContaxt,静态方法如下:
 
@@ -211,7 +218,7 @@ SimpleService.setFillDataHandler 方法作废.  不需要写代码, 会自动注
 	environment()
 ```
 
-### 2.7.2. SimpleService 进行了改造和优化
+### 2.8.2. SimpleService 进行了改造和优化
 新增方法
 
 ```
@@ -223,7 +230,7 @@ Response<List<DTO>> listPage(EntitySelect entitySelect)
 List<DTO> listObjects(EntitySelect entitySelect)
 ```
 
-### 2.7.3. EntitySelect 和DataQTO
+### 2.8.3. EntitySelect 和DataQTO
 EntitySelect 和 DataQTO 对 orderBy groupBy having 分页的支持  
 
-### 2.7.4. ResponseCode 增加了多个 异常编码 保证 Topxfox抛出异常 的编码唯一性
+### 2.8.4. ResponseCode 增加了多个 异常编码 保证 Topxfox抛出异常 的编码唯一性
